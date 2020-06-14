@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>图书管理系统</title>
-    <url>/2020/06/13/c-c-practice02/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>C/C++</category>
-      </categories>
-      <tags>
-        <tag>-C/C++实战</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>学生成绩管理系统</title>
     <url>/2020/06/13/c-c-practice01/</url>
     <content><![CDATA[]]></content>
@@ -20,6 +9,17 @@
       </categories>
       <tags>
         <tag>-C/C++实战 -C/C++训练 -C/C++ -系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图书管理系统</title>
+    <url>/2020/06/13/c-c-practice02/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>C/C++</category>
+      </categories>
+      <tags>
+        <tag>-C/C++实战</tag>
       </tags>
   </entry>
   <entry>
