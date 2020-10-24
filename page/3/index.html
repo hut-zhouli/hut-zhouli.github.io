@@ -71,7 +71,7 @@
 
 
 
-  <meta name="keywords" content="-C/C++实战 -C/C++训练 -C/C++ -系统," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -82,16 +82,11 @@
 
 
 
-<meta name="description" content="最近博主在学习完c++后开始自己做系统，其中发现一个问题困恼了我许久，在存数据到文件中发现我使用file(“file.txt”,ios::out|ios::trunc)；虽然程序没有报错，但是数据却没有存进去，文件也被清空了，里面的数据都没有了。这让我百思不得其解，网上也没有这方面的答案。解决方法:查看程序，看程序是否在同一程序内同时使用了这个文件，把文件操作分开进行，这个问题就没有了。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="C++使用ios::out|ios::trunc存入数据失败！">
-<meta property="og:url" content="https://hut-zhouli.github.io/2020/06/13/c-c-practice01/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="C&#x2F;C++">
+<meta property="og:url" content="https://hut-zhouli.github.io/page/3/index.html">
 <meta property="og:site_name" content="C&#x2F;C++">
-<meta property="og:description" content="最近博主在学习完c++后开始自己做系统，其中发现一个问题困恼了我许久，在存数据到文件中发现我使用file(“file.txt”,ios::out|ios::trunc)；虽然程序没有报错，但是数据却没有存进去，文件也被清空了，里面的数据都没有了。这让我百思不得其解，网上也没有这方面的答案。解决方法:查看程序，看程序是否在同一程序内同时使用了这个文件，把文件操作分开进行，这个问题就没有了。">
-<meta property="article:published_time" content="2020-06-13T02:57:30.000Z">
-<meta property="article:modified_time" content="2020-10-24T07:00:09.620Z">
 <meta property="article:author" content="hut-zhouli">
-<meta property="article:tag" content="-C&#x2F;C++实战 -C&#x2F;C++训练 -C&#x2F;C++ -系统">
 <meta name="twitter:card" content="summary">
 
 
@@ -122,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="https://hut-zhouli.github.io/2020/06/13/c-c-practice01/"/>
+  <link rel="canonical" href="https://hut-zhouli.github.io/page/3/"/>
 
 
 
 
 
-  <title>C++使用ios::out|ios::trunc存入数据失败！ | C/C++</title>
+  <title>C/C++</title>
   
 
 
@@ -148,7 +143,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
     <a href="https://github.com/hut-zhouli" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#151513; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -297,8 +293,386 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+
+.glyphicon-chevron-left:before{
+	content: "《"
+}
+.glyphicon-chevron-right:before{
+	content: "》"
+}
+
+@media (max-width: 767px){
+	.rights{
+		display: none;
+	}
+	.carousel{
+		width: 100% !important;
+		height: 100% !important;
+	}
+	.slide{
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+}
+
+.carousel{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.carousel-inner > .item {
+  display: none;
+  position: relative;
+  -webkit-transition: 0.6s ease-in-out left;
+  -o-transition: 0.6s ease-in-out left;
+  transition: 0.6s ease-in-out left;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  line-height: 1;
+}
+@media all and (transform-3d), (-webkit-transform-3d) {
+  .carousel-inner > .item {
+    -webkit-transition: -webkit-transform 0.6s ease-in-out;
+    -moz-transition: -moz-transform 0.6s ease-in-out;
+    -o-transition: -o-transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+  }
+  .carousel-inner > .item.next,
+  .carousel-inner > .item.active.right {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    left: 0;
+  }
+  .carousel-inner > .item.prev,
+  .carousel-inner > .item.active.left {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    left: 0;
+  }
+  .carousel-inner > .item.next.left,
+  .carousel-inner > .item.prev.right,
+  .carousel-inner > .item.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    left: 0;
+  }
+}
+.carousel-inner > .active,
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  display: block;
+}
+.carousel-inner > .active {
+  left: 0;
+}
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.carousel-inner > .next {
+  left: 100%;
+}
+.carousel-inner > .prev {
+  left: -100%;
+}
+.carousel-inner > .next.left,
+.carousel-inner > .prev.right {
+  left: 0;
+}
+.carousel-inner > .active.left {
+  left: -100%;
+}
+.carousel-inner > .active.right {
+  left: 100%;
+}
+.carousel-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0);
+}
+.carousel-control.left {
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+}
+.carousel-control.right {
+  left: auto;
+  right: 0;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+}
+.carousel-control:hover,
+.carousel-control:focus {
+  outline: 0;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+.carousel-control .icon-prev,
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  z-index: 5;
+  display: inline-block;
+}
+.carousel-control .icon-prev,
+.carousel-control .glyphicon-chevron-left {
+  left: 50%;
+  margin-left: -10px;
+}
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-right {
+  right: 50%;
+  margin-right: -10px;
+}
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+  width: 20px;
+  height: 20px;
+  line-height: 1;
+  font-family: serif;
+}
+.carousel-control .icon-prev:before {
+  content: '\2039';
+}
+.carousel-control .icon-next:before {
+  content: '\203a';
+}
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  z-index: 15;
+  width: 60%;
+  margin-left: -30%;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+.carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  text-indent: -999px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #000 \9;
+  background-color: rgba(0, 0, 0, 0);
+}
+.carousel-indicators .active {
+  margin: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+}
+.carousel-caption {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 20px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.carousel-caption .btn {
+  text-shadow: none;
+}
+@media screen and (min-width: 768px) {
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -10px;
+    font-size: 30px;
+  }
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .icon-prev {
+    margin-left: -10px;
+  }
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-next {
+    margin-right: -10px;
+  }
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }
+}
+</style>
+<div width="100%" height="320px" style="border: 0px; overflow: hidden; border-radius: 10px;" scrolling="no">
+			
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3500" >
+		<!-- 轮播（Carousel）指标 -->
+		<ol class="carousel-indicators">
+		
+		
+
+			<li data-target="#myCarousel" data-slide-to="0"></li>
+			
+
+		
+
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			
+
+		
+
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+			
+
+		
+
+			<li data-target="#myCarousel" data-slide-to="3"></li>
+			
+
+		
+
+			<li data-target="#myCarousel" data-slide-to="4"></li>
+			
+
+		
+
+			<li data-target="#myCarousel" data-slide-to="5"></li>
+			
+
+		
+
+			<li data-target="#myCarousel" data-slide-to="6"></li>
+			
+
+		
+		</ol>
+		<!-- 轮播（Carousel）项目 -->
+		<div class="carousel-inner" style="height: 280px; border-radius: 10px; width: 100%;">
+
+		
+		 
+		
+	    	
+				<a class="item active"  target="_blank" style="height: 100%;">
+					<img src="/images/7.gif"   style="width: 100%; height: 100%" >
+				</a>
+				
+				
+
+		
+		
+	    	
+					<a class="item"  target="_blank" style="height: 100%;">
+						<img src="/images/1.gif"  style="width: 100%; height: 100%;" >
+					</a>
+			
+
+		
+		
+	    	
+					<a class="item"  target="_blank" style="height: 100%;">
+						<img src="/images/2.jpg"  style="width: 100%; height: 100%;" >
+					</a>
+			
+
+		
+		
+	    	
+					<a class="item"  target="_blank" style="height: 100%;">
+						<img src="/images/3.gif"  style="width: 100%; height: 100%;" >
+					</a>
+			
+
+		
+		
+	    	
+					<a class="item"  target="_blank" style="height: 100%;">
+						<img src="/images/4.jpg"  style="width: 100%; height: 100%;" >
+					</a>
+			
+
+		
+		
+	    	
+					<a class="item"  target="_blank" style="height: 100%;">
+						<img src="/images/5.jpg"  style="width: 100%; height: 100%;" >
+					</a>
+			
+
+		
+		
+	    	
+					<a class="item"  target="_blank" style="height: 100%;">
+						<img src="/images/6.jpg"  style="width: 100%; height: 100%;" >
+					</a>
+			
+
+		
+
+	 
+		</div>
+		<!-- 轮播（Carousel）导航 -->
+		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		    
+		</a>
+		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		   
+		</a>
+	</div> 
+</div>
+
+
+
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -311,7 +685,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hut-zhouli.github.io/2020/06/13/c-c-practice01/">
+    <link itemprop="mainEntityOfPage" href="https://hut-zhouli.github.io/2020/06/11/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hut-zhouli">
@@ -328,7 +702,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C++使用ios::out|ios::trunc存入数据失败！</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/11/hello-world/" itemprop="url">职工管理系统</a></h1>
         
 
         <div class="post-meta">
@@ -340,8 +716,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-13T10:57:30+08:00">
-                2020-06-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-11T20:38:01+08:00">
+                2020-06-11
               </time>
             
 
@@ -382,11 +758,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv">本文总阅读数 <i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
-            </span>
-          
 
           
             <div class="post-wordcount">
@@ -399,7 +770,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  150 字
+                  2.6k 字
                 </span>
               
 
@@ -415,7 +786,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  14 分钟
                 </span>
               
             </div>
@@ -436,20 +807,24 @@
       
 
       
-        <p><strong>最近博主在学习完c++后开始自己做系统，其中发现一个问题困恼了我许久，在存数据到文件中发现我使用file(“file.txt”,ios::out|ios::trunc)；虽然程序没有报错，但是数据却没有存进去，文件也被清空了，里面的数据都没有了。<br>这让我百思不得其解，网上也没有这方面的答案。<br>解决方法:<br>查看程序，看程序是否在同一程序内同时使用了这个文件，把文件操作分开进行，这个问题就没有了。</strong></p>
-
+        
+          
+          我们在入门C++后都会自己设计
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/06/11/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
     
     
     
     <div>
-    
-      <div>
-    
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
-    
-</div>
     
     </div>
 
@@ -461,40 +836,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/C-C-%E5%AE%9E%E6%88%98-C-C-%E8%AE%AD%E7%BB%83-C-C-%E7%B3%BB%E7%BB%9F/" rel="tag"><i class="fa fa-google"></i> -C/C++实战 -C/C++训练 -C/C++ -系统</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2020/06/11/hello-world/" rel="next" title="职工管理系统">
-                <i class="fa fa-chevron-left"></i> 职工管理系统
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/13/c-c-practice02/" rel="prev" title="C++数据库连接池项目">
-                C++数据库连接池项目 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -504,37 +853,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<span class="jiathis_txt">分享到：</span>
-<a href="#" class="jiathis_button_fav">收藏夹</a>
-<a href="#" class="jiathis_button_copy">复制网址</a>
-<a href="#" class="jiathis_button_email">邮件</a>
-<a href="#" class="jiathis_button_weixin">微信</a>
-<a href="#" class="jiathis_button_qzone" >QQ空间</a>
-<a href="#" class="jiathis_button_tqq">腾讯微博</a>
-<a href="#" class="jiathis_button_douban">豆瓣</a>
-<a href="#" class="jiathis_button_share">一键分享</a>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
 
-<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-<a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-  data_track_clickback:true,
-  summary:"",
-  shortUrl:false,
-  hideMore:false
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-      
-    </div>
-  </div>
 
 
           </div>
@@ -542,20 +868,6 @@ var jiathis_config={
 
 
           
-
-  
-    <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC81MDQ4Mi8yNjk2OQ=="></div>
-    </div>
-
-  
-  
-
-
-
-
-
-
 
         </div>
         
@@ -1075,10 +1387,6 @@ if(canvas.getContext){
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 

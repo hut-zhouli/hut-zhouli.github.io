@@ -82,14 +82,14 @@
 
 
 
-<meta name="description" content="最近博主在学习完c++后开始自己做系统，其中发现一个问题困恼了我许久，在存数据到文件中发现我使用file(“file.txt”,ios::out|ios::trunc)；虽然程序没有报错，但是数据却没有存进去，文件也被清空了，里面的数据都没有了。这让我百思不得其解，网上也没有这方面的答案。解决方法:查看程序，看程序是否在同一程序内同时使用了这个文件，把文件操作分开进行，这个问题就没有了。">
+<meta name="description" content="本文对C++11的新特性进行讲解，有详细的代码介绍以及用法，帮助你们学习。话不多说，直接开始。 auto &amp; decltype关于C++11的新特性，最先提到的肯定是自动类型推导，很方便。C++11引入了auto和decltype关键字，使用它们可以让编译器在编译阶段自动推导出变量或者表达式的类型，对于C++开发人员来说简直就是一大福音呀。  auto:让编译器在编译阶段就推导出变量的类型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++使用ios::out|ios::trunc存入数据失败！">
-<meta property="og:url" content="https://hut-zhouli.github.io/2020/06/13/c-c-practice01/index.html">
+<meta property="og:title" content="C++11新特性讲解">
+<meta property="og:url" content="https://hut-zhouli.github.io/2020/06/16/c-c-practice03/index.html">
 <meta property="og:site_name" content="C&#x2F;C++">
-<meta property="og:description" content="最近博主在学习完c++后开始自己做系统，其中发现一个问题困恼了我许久，在存数据到文件中发现我使用file(“file.txt”,ios::out|ios::trunc)；虽然程序没有报错，但是数据却没有存进去，文件也被清空了，里面的数据都没有了。这让我百思不得其解，网上也没有这方面的答案。解决方法:查看程序，看程序是否在同一程序内同时使用了这个文件，把文件操作分开进行，这个问题就没有了。">
-<meta property="article:published_time" content="2020-06-13T02:57:30.000Z">
-<meta property="article:modified_time" content="2020-10-24T07:00:09.620Z">
+<meta property="og:description" content="本文对C++11的新特性进行讲解，有详细的代码介绍以及用法，帮助你们学习。话不多说，直接开始。 auto &amp; decltype关于C++11的新特性，最先提到的肯定是自动类型推导，很方便。C++11引入了auto和decltype关键字，使用它们可以让编译器在编译阶段自动推导出变量或者表达式的类型，对于C++开发人员来说简直就是一大福音呀。  auto:让编译器在编译阶段就推导出变量的类型">
+<meta property="article:published_time" content="2020-06-16T05:57:30.000Z">
+<meta property="article:modified_time" content="2020-10-24T09:22:30.524Z">
 <meta property="article:author" content="hut-zhouli">
 <meta property="article:tag" content="-C&#x2F;C++实战 -C&#x2F;C++训练 -C&#x2F;C++ -系统">
 <meta name="twitter:card" content="summary">
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://hut-zhouli.github.io/2020/06/13/c-c-practice01/"/>
+  <link rel="canonical" href="https://hut-zhouli.github.io/2020/06/16/c-c-practice03/"/>
 
 
 
 
 
-  <title>C++使用ios::out|ios::trunc存入数据失败！ | C/C++</title>
+  <title>C++11新特性讲解 | C/C++</title>
   
 
 
@@ -311,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hut-zhouli.github.io/2020/06/13/c-c-practice01/">
+    <link itemprop="mainEntityOfPage" href="https://hut-zhouli.github.io/2020/06/16/c-c-practice03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hut-zhouli">
@@ -328,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C++使用ios::out|ios::trunc存入数据失败！</h1>
+          <h1 class="post-title" itemprop="name headline">C++11新特性讲解</h1>
         
 
         <div class="post-meta">
@@ -340,8 +340,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-13T10:57:30+08:00">
-                2020-06-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-16T13:57:30+08:00">
+                2020-06-16
               </time>
             
 
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  150 字
+                  1.5k 字
                 </span>
               
 
@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  6 分钟
                 </span>
               
             </div>
@@ -436,7 +436,70 @@
       
 
       
-        <p><strong>最近博主在学习完c++后开始自己做系统，其中发现一个问题困恼了我许久，在存数据到文件中发现我使用file(“file.txt”,ios::out|ios::trunc)；虽然程序没有报错，但是数据却没有存进去，文件也被清空了，里面的数据都没有了。<br>这让我百思不得其解，网上也没有这方面的答案。<br>解决方法:<br>查看程序，看程序是否在同一程序内同时使用了这个文件，把文件操作分开进行，这个问题就没有了。</strong></p>
+        <p>本文对C++11的新特性进行讲解，有详细的代码介绍以及用法，帮助你们学习。话不多说，直接开始。</p>
+<h2 id="auto-amp-decltype"><a href="#auto-amp-decltype" class="headerlink" title="auto &amp; decltype"></a>auto &amp; decltype</h2><p>关于C++11的新特性，最先提到的肯定是自动类型推导，很方便。C++11引入了auto和decltype关键字，使用它们可以让编译器在编译阶段自动推导出变量或者表达式的类型，对于C++开发人员来说简直就是一大福音呀。</p>
+<ul>
+<li>auto:让编译器在编译阶段就推导出变量的类型，可以通过赋值运算符=右边的类型推导出变量的类型。<br>例如：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> i = <span class="number">10</span>;  <span class="comment">//推导出10为int型，所以auto为int型</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>decltype：与auto不同的是decltype用于推导表达式的类型，编译器会分析表达式的类型，但并不会执行表达式。<br>例如：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">decltype</span>(i) b = <span class="number">2</span>;   <span class="comment">//decltype推导出i的类型为const int 则b类型也为const int.</span></span><br></pre></td></tr></table></figure>
+<h2 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h2><p>C++11新增加了右值引用，先讲概念：<br>右值：没有名字，不能对其进行取址操作，通常用来保存临时变量。<br>右值引用就是对右值进行引用的类型。右值引用支持完美转发和移动语义。<br>移动语义：转移资源的所有权。<br>完美转发：可以写一个接受任意实参的函数模板，并转发到其他函数，目标函数会收到与转发函数相同的实参。<br>使用右值引用可以减少不必要的拷贝，性能更加优化。</p>
+<h2 id="初始化列表"><a href="#初始化列表" class="headerlink" title="初始化列表"></a>初始化列表</h2><p>在C++11中可以直接在变量名后面加上初始化列表来进行对象的初始化。<br>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	student(<span class="built_in">string</span> name_h,<span class="keyword">int</span> age_h):name(name_h),age(age_h)&#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="built_in">string</span> name;</span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">student <span class="title">std</span><span class="params">(<span class="string">"xiaoming"</span>,<span class="number">18</span>)</span></span>;</span><br><span class="line">	student std1 = &#123;<span class="string">"xiaohong"</span>,<span class="number">24</span>&#125;;</span><br><span class="line">	student std2&#123;<span class="string">"xiaohei"</span>,<span class="number">21</span>&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//也可以使用在返回值</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">func</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="function-amp-bind-amp-lambda表达式"><a href="#function-amp-bind-amp-lambda表达式" class="headerlink" title="function &amp; bind &amp; lambda表达式"></a>function &amp; bind &amp; lambda表达式</h2><ul>
+<li>function函数</li>
+</ul>
+<p>function可以看作是一个函数对象，用于对这个函数的抽象概念。function的实例对象可以存储、赋值和调用任何可以调用的对象（函数指针，伪函数,lambda等等）；<br>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line">function&lt;<span class="keyword">int</span>(<span class="keyword">int</span>,<span class="keyword">int</span>)&gt; f = func;</span><br><span class="line">f(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">function&lt;<span class="keyword">void</span>(<span class="keyword">int</span> a,<span class="keyword">int</span> b)&gt; f1 = [](<span class="keyword">int</span> a,<span class="keyword">int</span> b)&#123;<span class="keyword">return</span> a+b;&#125;;</span><br><span class="line">f1(<span class="number">1</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>从上面可以看到function的使用方法，当对function填入合适的参数表和返回值后，它就变成了可以容纳所有这一类调用方式的函数封装器，可以作为回调函数。</p>
+<ul>
+<li>bind函数</li>
+</ul>
+<p>bind函数可以将可调用对象和参数一起绑定，绑定后的结果可以使用function函数保存。通常与placeholdors占位符一起使用，有两大作用：</p>
+<ul>
+<li>将可调用对象和参数绑定。</li>
+<li>可以将n元对象转为m（m&lt;n）元可调用对象。<br>例如：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="string">""</span>&lt;&lt;b&lt;&lt;<span class="string">""</span>&lt;&lt;c&lt;&lt;<span class="string">""</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">auto</span> func1 = bind(func,placeholdors::_1,<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">	func1(<span class="number">3</span>);			<span class="comment">//相当于func(3,1,2);</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">auto</span> func1 = bind(func,placeholdors::_1,placeholdors::_2,<span class="number">2</span>);</span><br><span class="line">	func1(<span class="number">3</span>,<span class="number">2</span>);			<span class="comment">//相当于func(3,2,2);</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">auto</span> func1 = bind(func,placeholdors::_1,placeholdors::_2,placeholdors::_3);</span><br><span class="line">	func1(<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>);		<span class="comment">//相当于func(3,2,1);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>lambda表达式</li>
+</ul>
+<p>lambda表达式定义了一个匿名函数，可以捕获一定范围的变量在函数内部使用。<br>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> func = [](<span class="keyword">int</span> a,<span class="keyword">int</span> b)&#123;<span class="keyword">return</span> a+b;&#125;;</span><br></pre></td></tr></table></figure>
+<p>[]内可以捕获变量，使用&amp;或者=或者直接输入变量名。</p>
+<h2 id="锁机制-amp-多线程"><a href="#锁机制-amp-多线程" class="headerlink" title="锁机制&amp;多线程"></a>锁机制&amp;多线程</h2><p>c++11增加了许多并发相关的东西，比如说</p>
+<ul>
+<li>thread相关，多线程</li>
+<li>mutex相关，互斥锁</li>
+<li>lock相关，锁</li>
+<li>atomic相关，原子变量等等</li>
+<li>condition_variable相关，条件变量等等<h2 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h2>说到c++最让程序员头痛的莫过于内存管理了，经常内存泄漏。c++11引入了智能指针来解决内存泄漏的问题。c++11引入了三种新的智能指针。</li>
+<li>unique_ptr:独享式智能指针，不能复制与赋值，同一时间类只能有一个unique_ptr指向该对象，可以使用move()转移对象的所有权。</li>
+<li>shared_ptr:共享式智能指针，支持复制与赋值，可以多个智能指针指向该对象，只有最后一个指针才会释放资源。使用计数技术来表明有多少个指针共享该资源。</li>
+<li>weak_ptr:它是对对象的弱引用，不会增加对象的引用计数，可以与shared_ptr相互转换，shared_ptr可以直接赋值给它，它可以通过调用lock函数来获得shared_ptr。</li>
+</ul>
+<p>如果shared_ptr指针相互引用的话仍然会造成内存泄漏，可以使用weak_ptr解决。</p>
+<h2 id="基于范围的for循环"><a href="#基于范围的for循环" class="headerlink" title="基于范围的for循环"></a>基于范围的for循环</h2><p>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> x:vec)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;x&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="nullptr"><a href="#nullptr" class="headerlink" title="nullptr"></a>nullptr</h2><p>nullptr是C++11用来表示空指针新引入的常量值，在C++用来表示空指针语义时建议使用nullptr而不要使用NULL，因为NULL本质上是int型的0，不是个空指针。</p>
+<h2 id="C-11关键字"><a href="#C-11关键字" class="headerlink" title="C++11关键字"></a>C++11关键字</h2><ul>
+<li>final:用于修饰一个类，表示禁止该类进一步派生和虚函数的进一步重载。<ul>
+<li>override:用于修饰派生类中的成员函数，表明该函数重写了基类函数。</li>
+<li>default:用于生成默认构造函数。</li>
+<li>delete:禁止生成默认构造函数</li>
+<li>explicit:作用于修饰构造函数，表示只能显示构造，不可以被隐式转换。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">peopel</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		people()&#123;&#125;;</span><br><span class="line">		people(people &amp;)&#123;&#125;;</span><br><span class="line">		<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">		<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">func1</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="built_in">string</span> name;</span><br><span class="line">		<span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">student</span>:</span><span class="keyword">public</span> people</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="function"><span class="keyword">explicit</span> <span class="title">student</span><span class="params">()</span> </span>= <span class="keyword">default</span>;</span><br><span class="line">		student(student &amp;)=<span class="keyword">delete</span>;</span><br><span class="line">		<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> <span class="keyword">override</span></span>&#123;&#125;;</span><br><span class="line">		<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">func1</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="built_in">string</span> name;</span><br><span class="line">		<span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	studnet <span class="built_in">std</span> = &#123;<span class="string">"xiaoming"</span>,<span class="number">12</span>&#125;; 		<span class="comment">//error，不能隐式转换</span></span><br><span class="line">	<span class="function">studnet <span class="title">std1</span><span class="params">(<span class="string">"xiaohei"</span>,<span class="number">13</span>)</span></span>;			<span class="comment">//OK</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+好了，就写这么多吧，相信各位看完后一定会有所收获的。</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -476,8 +539,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/11/hello-world/" rel="next" title="职工管理系统">
-                <i class="fa fa-chevron-left"></i> 职工管理系统
+              <a href="/2020/06/15/c-c-practice04/" rel="next" title="安装centos问题及解决方法">
+                <i class="fa fa-chevron-left"></i> 安装centos问题及解决方法
               </a>
             
           </div>
@@ -485,10 +548,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/13/c-c-practice02/" rel="prev" title="C++数据库连接池项目">
-                C++数据库连接池项目 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -576,8 +635,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -657,6 +725,22 @@ var jiathis_config={
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#auto-amp-decltype"><span class="nav-number">1.</span> <span class="nav-text">auto &amp; decltype</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#右值引用"><span class="nav-number">2.</span> <span class="nav-text">右值引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化列表"><span class="nav-number">3.</span> <span class="nav-text">初始化列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#function-amp-bind-amp-lambda表达式"><span class="nav-number">4.</span> <span class="nav-text">function &amp; bind &amp; lambda表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁机制-amp-多线程"><span class="nav-number">5.</span> <span class="nav-text">锁机制&amp;多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#智能指针"><span class="nav-number">6.</span> <span class="nav-text">智能指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于范围的for循环"><span class="nav-number">7.</span> <span class="nav-text">基于范围的for循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nullptr"><span class="nav-number">8.</span> <span class="nav-text">nullptr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-11关键字"><span class="nav-number">9.</span> <span class="nav-text">C++11关键字</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
